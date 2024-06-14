@@ -1,11 +1,29 @@
-import Image from 'next/image'
+import React from 'react';
+import Link from 'next/link';
+import { UserButton } from "@clerk/nextjs";
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100">
+       <header className="bg-green-500 text-white p-4 mb-4 w-full flex justify-between items-center">
+      <Link href="/" passHref><h1 className="text-2xl font-bold cursor-pointer">Syphtr</h1></Link>
+      <div className="flex space-x-4">
+        <Link href="/DbSearchForm" passHref><span className="bg-white text-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition duration-200 cursor-pointer">Search for Candidates</span></Link>
+        <Link href="/jobspage" passHref><span className="bg-white text-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition duration-200 cursor-pointer">Your Jobs</span></Link>
+        <Link href="/ProxyCurlSearchForm" passHref><span className="bg-white text-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition duration-200 cursor-pointer">Proxy Curl Search Form</span></Link>
+        <Link href="/create-organization/" passHref><span className="bg-white text-blue-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition duration-200 cursor-pointer">Create Organization</span></Link>
+        <Link href="/organization-profile/" passHref><span className="bg-white text-blue-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition duration-200 cursor-pointer">Your Organization Profile</span></Link>
+        <UserButton afterSignOutUrl="/" />
+      </div>
+    </header>
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          <div className="text-left w-full">
+        <Link href="/firstSelectionPage">Go to First Selection Page</Link>
+      </div>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
+          get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
@@ -109,5 +127,6 @@ export default function Home() {
         </a>
       </div>
     </main>
+  </div>
   )
 }
